@@ -35,17 +35,3 @@ VALUES('emmanuel', 'njoku', 'male', 'computerscience', '500', 'njokuemmanuel541@
 );
 ```
 
-> **Note:** The `INSERT` statement above doesn't match the `students` table exactly as defined:
-> - The table name is `students`, not `Students` (MySQL is case-insensitive for table names on most systems, but worth aligning).
-> - The columns listed are `FirstName, Name, Gender, Department, Level, Email`, but the table has `FirstName, LastName, Gender, DepartmentID, Level, Email` — there's no `Name` or `Department` column, and `DepartmentID` is an `INT` foreign key, not a department name string like `'computerscience'`.
-> - A corrected version would look like:
->
-> ```sql
-> INSERT INTO students (
->     FirstName, LastName, Gender, DepartmentID, Level, Email
-> )
-> VALUES (
->     'emmanuel', 'njoku', 'male', 1, 500, 'njokuemmanuel541@gmail.com'
-> );
-> ```
-> (assuming `DepartmentID = 1` corresponds to Computer Science in the `Department` table, and `Level` is an `INT` so `500` shouldn't be quoted.)
